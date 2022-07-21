@@ -1,0 +1,31 @@
+/* Navbar with large screen */
+.sideMenuLargeScreen{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 68px;
+  padding: 10px 10px 30px 10px;
+}
+.sideMenuLargeScreen ion-icon{
+  font-size: x-large;
+  margin: 20px 0;
+  cursor: pointer;
+  z-index: 20;
+}
+.sideMenuLargeScreen li{
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar with small screen */
+.sideMenuSmallScreen{
+  width: 100vw;
+}
+.sideMenuSmallScreen ion-icon{
+  font-size: x-large;
+  cursor: pointer;
+}
+
+/* Main Content Division on Home Page */
