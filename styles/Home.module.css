@@ -1,5 +1,5 @@
 /* Navbar with large screen */
-.sideMenuLargeScreen{
+.sideMenuLargeScreen {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,24 +8,48 @@
   width: 68px;
   padding: 10px 10px 30px 10px;
 }
-.sideMenuLargeScreen ion-icon{
+
+.sideMenuLargeScreen ion-icon {
   font-size: x-large;
   margin: 20px 0;
   cursor: pointer;
   z-index: 20;
 }
-.sideMenuLargeScreen li{
+
+.sideMenuLargeScreen li {
   display: flex;
   align-items: center;
 }
 
 /* Navbar with small screen */
-.sideMenuSmallScreen{
+.sideMenuSmallScreen {
   width: 100vw;
+  background-color: #fff;
 }
-.sideMenuSmallScreen ion-icon{
+
+.sideMenuSmallScreen ion-icon {
   font-size: x-large;
   cursor: pointer;
 }
 
 /* Main Content Division on Home Page */
+.mainContentList div div div .h1title {
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: medium;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .mainContentList {
+    margin-left: 58px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .mainContentList {
+    margin-right: 320px;
+  }
+}

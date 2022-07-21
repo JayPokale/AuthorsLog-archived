@@ -4,8 +4,8 @@ import Styles from "../styles/Home.module.css"
 const Navbar = () => {
 
   return (
-    <nav className="flex bg-white">
-      <div className="pl-4 pt-2 md:hidden">Logo</div>
+    <nav className="flex bg-white z-30 fixed">
+      <div className="pl-4 pt-2 md:hidden fixed z-20">Logo</div>
       <div className="hidden md:flex my-auto">
         <div className={Styles.sideMenuLargeScreen}>
           <div className="cursor-pointer">Logo</div>
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="md:hidden fixed bottom-0">
+      <div className="md:hidden fixed bottom-0 z-10">
         <div className={Styles.sideMenuSmallScreen}>
           <ul className="flex justify-evenly w-full py-2">
             <li><ion-icon name="home-outline"></ion-icon></li>
