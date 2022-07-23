@@ -18,7 +18,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -36,7 +36,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -54,7 +54,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -72,7 +72,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -90,7 +90,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -108,7 +108,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -126,7 +126,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -144,7 +144,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -162,7 +162,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -180,7 +180,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -198,7 +198,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
@@ -216,7 +216,7 @@ const ContentList = () => {
           <div className="flex cursor-pointer">
             <div className="w-10 h-10 bg-black rounded-full absolute"></div>
             <div className="ml-14">
-              <h1 className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</h1>
+              <div className={Styles.h1title}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus maiores quos obcaecati rem! Adipisci exercitationem esse unde rerum tempora ipsam, magni, eveniet, quam repudiandae praesentium odio eius. Nisi, aliquid cumque!30</div>
               <div className="text-sm text-gray-800">var Author = Dare2Solve</div>
               <div className="text-sm text-gray-600">10k votes (70%) &#9679; 08 Mar 2001</div>
             </div>
