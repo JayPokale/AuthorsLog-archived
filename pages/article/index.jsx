@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
-import ContentList from '../components/ContentList'
-import Rightbar from '../components/Rightbar'
+import Navbar from '../../components/Navbar'
+import ContentList from '../../components/ContentList'
+import Rightbar from '../../components/Rightbar'
 
 export default function Home() {
   return (
