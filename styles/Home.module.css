@@ -40,11 +40,13 @@
     margin-left: 68px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .mainContent {
     margin-right: 320px;
   }
 }
+
 .mainContent .h1title {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -55,11 +57,13 @@
   font-size: medium;
   font-weight: 600;
 }
+
 .mainContent p {
   text-align: justify;
   text-indent: 50px;
   font-size: 20px;
 }
+
 .mainContent img {
   margin: 20px 0;
 }
@@ -93,4 +97,62 @@
 
 .ArticleInfo {
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .writeContent {
+    margin-left: 68px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .writeContent {
+    margin-right: 320px;
+  }
+}
+
+.writeContent p {
+  text-align: justify;
+  font-size: 20px;
+}
+
+.writeContent img {
+  margin: 20px 0;
+}
+
+.writeContent ol {
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+  font-size: 20px;
+}
+
+.writeContent ul {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1 em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+  font-size: 20px;
+}
+
+.writeContent li {
+  display: list-item;
+  font-size: 20px;
+}
+
+.writeContent input {
+  padding: 5px 15px;
+}
+
+.writeContent ::placeholder{
+  color: rgba(0,0,0,0.6);
+  font-style: italic;
+  font-size: 12px;
 }

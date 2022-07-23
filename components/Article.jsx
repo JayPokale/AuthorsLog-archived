@@ -22,7 +22,7 @@ const Article = () => {
         </div>
       </main>
 
-      <article className="px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36">
+      <article className="px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900">
         <div className="py-8 border-b-2">
           <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque reiciendis voluptas fugit saepe. Iusto, dolorem?</h1>
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque reiciendis voluptas fugit saepe. Iusto, dolorem?</h2>
