@@ -1,27 +1,73 @@
 import Styles from "../styles/Home.module.css"
 import { useState } from 'react';
+import FormData from 'form-data';
 import dynamic from 'next/dist/shared/lib/dynamic';
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.bubble.css';
 
 const modules = {
-  toolbar: [
-    [{ header: '2' }],
-    ['bold', 'italic', 'underline', 'blockquote'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
+  toolbar: {
+    container: [
+      [{ header: '2' }],
+      ['bold', 'italic', 'underline', 'blockquote'],
+      [
+        { list: 'ordered' },
+        { list: 'bullet' },
+        { 'align': [] },
+      ],
+      ['link', 'image'],
+      ['clean'],
     ],
-    ['link', 'image', 'video'],
-    ['clean'],
-  ],
+    handlers: {
+      image: imageHandler
+    }
+  },
   clipboard: {
     matchVisual: false,
-  },
+  }
 }
-const formats = [
-  'header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video',
-]
+const formats = ['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'align', 'link', 'image']
+
+async function imageHandler() {
+  const input = document.createElement('input');
+
+  input.setAttribute('type', 'file');
+  input.setAttribute('accept', 'image/*');
+  input.click();
+
+  input.onchange = async () => {
+    var file = input.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'AuthorsLog')
+    var range = this.quill.getSelection();
+    const res = await uploadFiles(formData)
+      .then((url) => {
+        if (url) {
+          this.quill.insertEmbed(range.index, 'image', url);
+        } else {
+          alert('An error occured')
+        }
+      })
+  };
+}
+
+async function uploadFiles(uploadFileObj) {
+  //To Upload in root folder  
+  var apiUrl = `https://api.cloudinary.com/v1_1/AuthorsLog/image/upload`;
+
+  if (uploadFileObj != '') {
+    const data = await fetch(apiUrl, {
+      method: 'POST',
+      body: uploadFileObj, // This is your file object  
+    }).then(r => r.json())
+    console.log(data.secure_url)
+    return data.secure_url;
+  } else {
+    alert('An error occured')
+  }
+}
+
 
 export default function UploadContent() {
   const [content, setContent] = useState("");

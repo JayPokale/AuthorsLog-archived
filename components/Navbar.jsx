@@ -4,7 +4,7 @@ import Styles from "../styles/Home.module.css"
 const Navbar = () => {
 
   return (
-    <nav className="flex bg-white z-30 fixed">
+    <nav className="flex bg-white z-30 md:z-0 fixed">
       <div className="pl-4 pt-2 md:hidden fixed z-20">Logo</div>
       <div className="hidden md:flex my-auto">
         <div className={Styles.sideMenuLargeScreen}>
