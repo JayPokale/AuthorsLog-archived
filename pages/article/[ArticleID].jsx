@@ -10,6 +10,6 @@ const temppost = () => {
       <Rightbar />
     </div>
   );
-}
+};
 
 export default temppost;

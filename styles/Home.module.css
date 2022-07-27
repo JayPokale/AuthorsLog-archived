@@ -151,8 +151,8 @@
   padding: 5px 15px;
 }
 
-.writeContent ::placeholder{
-  color: rgba(0,0,0,0.6);
+.writeContent ::placeholder {
+  color: rgba(0, 0, 0, 0.6);
   font-style: italic;
   font-size: 12px;
 }
