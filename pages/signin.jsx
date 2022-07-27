@@ -17,7 +17,7 @@ const signin = () => {
   const logUser = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user)
+        sessionStorage.setItem('Token', r.user.accessToken)
         router.push('/')
       })
       .catch((e) => {
@@ -27,21 +27,21 @@ const signin = () => {
   const signUpWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user)
+        sessionStorage.setItem('Token', r.user.accessToken)
         router.push('/')
       }).catch((e) => {e})
   }
   const signUpWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user)
+        sessionStorage.setItem('Token', r.user.accessToken)
         router.push('/')
       }).catch((e) => {e})
   }
   const signUpWithTwitter = () => {
     signInWithPopup(auth, twitterProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user)
+        sessionStorage.setItem('Token', r.user.accessToken)
         router.push('/')
       }).catch((e) => {e})
   }
