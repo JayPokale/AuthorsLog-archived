@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { app } from "../config/firebase"
-import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvider, TwitterAuthProvider, signInWithPopup } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, FacebookAuthProvider, GoogleAuthProvider, TwitterAuthProvider, signInWithPopup } from "firebase/auth"
 import { useRouter } from "next/router";
 
 const signup = () => {
@@ -16,46 +16,51 @@ const signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const createUser = () => {
-    if (!fname){
+  const createUser = async () => {
+    if (!fname) {
       alert('Enter First Name')
-    } else if (!lname){
+    } else if (!lname) {
       alert('Enter Last Name')
-    } else if (!email){
+    } else if (!email) {
       alert('Enter Email')
-    } else if (!password){
+    } else if (!password) {
       alert('Enter Password')
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((r) => {
-          sessionStorage.setItem('Token', r.user.accessToken)
-          router.push('/')
+          sessionStorage.setItem('User', r.user)
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              alert('Verification Email Sent')
+              router.push('/')
+            }).catch((e) => {
+              alert(e)
+            })
+        }).catch((e) => {
+          alert(e)
         })
-        .catch((err) => {
-          alert('Alert' + err)
-        })
-      }
+    }
   }
   const signUpWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user.accessToken)
+        sessionStorage.setItem('Token', r.user)
         router.push('/')
-      }).catch(() => {})
+      }).catch((e) => { alert(e) })
   }
   const signUpWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user.accessToken)
+        sessionStorage.setItem('Token', r.user)
         router.push('/')
-      }).catch(() => {})
+      }).catch((e) => { alert(e) })
   }
   const signUpWithTwitter = () => {
     signInWithPopup(auth, twitterProvider)
       .then((r) => {
-        sessionStorage.setItem('Token', r.user.accessToken)
+        sessionStorage.setItem('Token', r.user)
         router.push('/')
-      }).catch(() => {})
+      }).catch((e) => { alert(e) })
   }
 
   return (
@@ -86,9 +91,15 @@ const signup = () => {
             <div className="absolute -translate-y-1/2 bg-white px-4 text-gray-400">or connect with</div>
           </div>
           <div className="w-full grid grid-cols-3 divide-x-2 my-6">
-            <div onClick={signUpWithFacebook}><img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/facebook-colored-af4249157d.svg" /></div>
-            <div onClick={signUpWithGoogle}><img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/google-colored-20b8216731.svg" /></div>
-            <div onClick={signUpWithTwitter}><img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/linkedin-colored-1db195795c.svg" /></div>
+            <div onClick={signUpWithFacebook}>
+              <img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/facebook-colored-af4249157d.svg" />
+            </div>
+            <div onClick={signUpWithGoogle}>
+              <img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/google-colored-20b8216731.svg" />
+            </div>
+            <div onClick={signUpWithTwitter}>
+              <img className="h-12 mx-auto cursor-pointer" src="https://hrcdn.net/community-frontend/assets/linkedin-colored-1db195795c.svg" />
+            </div>
           </div>
         </div>
       </div>
