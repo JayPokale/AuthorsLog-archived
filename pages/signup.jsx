@@ -22,11 +22,7 @@ const signup = () => {
   const [password, setPassword] = useState("");
 
   const createUser = async () => {
-    if (!fname) {
-      alert("Enter First Name");
-    } else if (!lname) {
-      alert("Enter Last Name");
-    } else if (!email) {
+    if (!email) {
       alert("Enter Email");
     } else if (!password) {
       alert("Enter Password");
@@ -34,14 +30,7 @@ const signup = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((r) => {
           sessionStorage.setItem("User", r.user.accessToken);
-          sendEmailVerification(auth.currentUser)
-            .then(() => {
-              alert("Verification Email Sent");
-              router.push("/");
-            })
-            .catch((e) => {
-              alert(e);
-            });
+          router.push("/userdatails");
         })
         .catch((e) => {
           alert(e);
@@ -52,7 +41,7 @@ const signup = () => {
     signInWithPopup(auth, facebookProvider)
       .then((r) => {
         sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
+        router.push("/userdatails");
       })
       .catch((e) => {
         alert(e);
@@ -62,7 +51,7 @@ const signup = () => {
     signInWithPopup(auth, googleProvider)
       .then((r) => {
         sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
+        router.push("/userdatails");
       })
       .catch((e) => {
         alert(e);
@@ -72,7 +61,7 @@ const signup = () => {
     signInWithPopup(auth, twitterProvider)
       .then((r) => {
         sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
+        router.push("/userdatails");
       })
       .catch((e) => {
         alert(e);

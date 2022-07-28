@@ -1,28 +1,43 @@
 import Script from "next/script";
 import Styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="flex bg-white z-30 md:z-0 fixed">
-      <div className="pl-4 pt-2 md:hidden fixed z-20">Logo</div>
+      <Link href={"/"}>
+        <div className="pl-4 pt-2 md:hidden fixed z-20">Logo</div>
+      </Link>
       <div className="hidden md:flex my-auto">
         <div className={Styles.sideMenuLargeScreen}>
-          <div className="cursor-pointer">Logo</div>
+          <Link href={"/"}>
+            <div className="cursor-pointer">Logo</div>
+          </Link>
           <ul>
             <li>
-              <ion-icon name="home-outline"></ion-icon>
+              <Link href={"/"}>
+                <ion-icon name="home-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="bookmarks-outline"></ion-icon>
+              <Link href={"#"}>
+                <ion-icon name="bookmarks-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="add-outline"></ion-icon>
+              <Link href={"/upload"}>
+                <ion-icon name="add-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="chatbubbles-outline"></ion-icon>
+              <Link href={"#"}>
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+              </Link>
             </li>
           </ul>
-          <div className="cursor-pointer">DP</div>
+          <Link href={"#"}>
+            <div className="cursor-pointer">DP</div>
+          </Link>
         </div>
       </div>
 
@@ -30,16 +45,24 @@ const Navbar = () => {
         <div className={Styles.sideMenuSmallScreen}>
           <ul className="flex justify-evenly w-full py-2">
             <li>
-              <ion-icon name="home-outline"></ion-icon>
+              <Link href={"/"}>
+                <ion-icon name="home-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="bookmarks-outline"></ion-icon>
+              <Link href={"#"}>
+                <ion-icon name="bookmarks-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="add-outline"></ion-icon>
+              <Link href={"/upload"}>
+                <ion-icon name="add-outline"></ion-icon>
+              </Link>
             </li>
             <li>
-              <ion-icon name="chatbubbles-outline"></ion-icon>
+              <Link href={"#"}>
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+              </Link>
             </li>
             <li>DP</li>
           </ul>
@@ -49,11 +72,11 @@ const Navbar = () => {
       <Script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-      ></Script>
+      />
       <Script
         nomodule
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-      ></Script>
+      />
     </nav>
   );
 };

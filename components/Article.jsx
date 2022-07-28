@@ -5,19 +5,21 @@ const Article = () => {
     <div className={Styles.mainContent}>
       <div className="h-12 w-full bg-white fixed md:hidden z-10"></div>
 
-      <main className="px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36">
-        <div className="pt-24 md:pt-12 pb-8 flex justify-between border-b-2">
+      <main className="sm:px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36">
+        <div className="pt-24 md:pt-12 pb-8 flex flex-wrap justify-between border-b-2">
           <div className="flex cursor-pointer">
             <div className="w-14 h-14 bg-black rounded-full"></div>
             <div className="flex flex-col ml-4 justify-center">
-              <div className="font-bold text-lg">
-                Lily Laramar{" "}
-                <span className="font-normal text-sm text-gray-600">
-                  (420 Followers)
-                </span>{" "}
-                <span className="ml-2 text-base text-blue-600">Follow</span>
+              <div className="font-bold text-lg flex flex-wrap">
+                <span>Lily Laramar</span>
+                <span className="font-normal text-sm text-gray-600 contents">
+                  &nbsp;(420 Followers)&nbsp;
+                </span>
+                <span className="ml-2 text-base text-blue-600 contents">
+                  Follow
+                </span>
               </div>
-              <div className="text-sm text-gray-600">69 days ago</div>
+              <div className="text-sm text-gray-600 contents">69 days ago</div>
             </div>
           </div>
           <div className="flex space-x-4 items-center mr-8">

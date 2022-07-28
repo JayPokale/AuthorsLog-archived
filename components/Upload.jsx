@@ -1,9 +1,17 @@
+// Uploading image to server remaining
+// Uploading content to firebase ramaining
+
 import Styles from "../styles/Home.module.css";
 import { useState } from "react";
 import FormData from "form-data";
 import dynamic from "next/dist/shared/lib/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.bubble.css";
+
+const displayPhotoClick = () => {
+  let displayPhoto = document.getElementById("displayPhoto");
+  displayPhoto.click();
+};
 
 const modules = {
   toolbar: {
@@ -63,15 +71,13 @@ async function imageHandler() {
 }
 
 async function uploadFiles(uploadFileObj) {
-  //To Upload in root folder
   var apiUrl = `https://api.cloudinary.com/v1_1/AuthorsLog/image/upload`;
 
   if (uploadFileObj != "") {
     const data = await fetch(apiUrl, {
       method: "POST",
-      body: uploadFileObj, // This is your file object
+      body: uploadFileObj,
     }).then((r) => r.json());
-    console.log(data.secure_url);
     return data.secure_url;
   } else {
     alert("An error occured");
@@ -80,6 +86,19 @@ async function uploadFiles(uploadFileObj) {
 
 export default function UploadContent() {
   const [content, setContent] = useState("");
+  const [featuredImage, setFeaturedImage] = useState("/blankFeatured.jpg");
+  const [uploadProfile, setUploadProfile] = useState("");
+
+  const uploadImage = (event) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setFeaturedImage(reader.result);
+      }
+    };
+    setUploadProfile(event.target.files[0]);
+    reader.readAsDataURL(event.target.files[0]);
+  };
 
   return (
     <div className={Styles.writeContent}>
@@ -110,25 +129,53 @@ export default function UploadContent() {
           </div>
           <div className="w-full mb-8">
             <div className="text-xl font-bold text-gray-600 pl-6 pb-1">
-              Categories{" "}
+              Categories
               <span className="text-base font-normal">
-                (1–5 comma seperated values)
+                (Comma seperated values)
               </span>
             </div>
             <input
               className="bg-gray-100 border-2 border-gray-100 rounded-lg w-full py-2 text-gray-700 focus:outline-none text-xl"
               type="text"
+              placeholder="1 to 5 categories preferred"
             />
           </div>
           <div className="w-full mb-8">
             <div className="text-xl font-bold text-gray-600 pl-6 pb-1">
-              Featured Image{" "}
+              Featured Image
               <span className="text-base font-normal">
                 (16:9 ratio preferred)
               </span>
             </div>
-            <input type="file" id="img" name="img" accept="image/*" />
+            <div className="relative h-36 w-64 mx-auto overflow-hidden">
+                <img
+                  id="DP"
+                  className="cursor-pointer"
+                  src={featuredImage}
+                  width={256}
+                  height={144}
+                  layout="responsive"
+                  onClick={displayPhotoClick}
+                  style={{margin: '0 auto'}}
+                />
+                <input
+                  className="hidden"
+                  type="file"
+                  id="displayPhoto"
+                  name="displayPhoto"
+                  accept="image/*"
+                  onChange={uploadImage}
+                />
+              </div>
           </div>
+          <div
+              className="w-36 flex justify-center mx-auto px-6 py-3 rounded-full bg-green-600 text-gray-50 font-semibold tracking-widest drop-shadow-md cursor-pointer"
+              style={{ boxShadow: "0 4px 10px 0 rgba(27, 148, 71, 0.3)" }}
+              type="submit"
+              // onClick={}
+            >
+              Submit
+            </div>
         </div>
       </article>
     </div>

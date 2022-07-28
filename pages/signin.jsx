@@ -21,14 +21,20 @@ const signin = () => {
   const [password, setPassword] = useState("");
 
   const logUser = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((r) => {
-        sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
-      })
-      .catch((e) => {
-        alert(e);
-      });
+    if (!email) {
+      alert("Enter Email");
+    } else if (!password) {
+      alert("Enter Password");
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((r) => {
+          sessionStorage.setItem("Token", r.user.accessToken);
+          router.push("/");
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    }
   };
   const signUpWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
