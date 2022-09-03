@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Upload from "../components/Upload";
 import Rightbar from "../components/Rightbar";
 
-export default function Home() {
+export default function AddPost() {
   return (
     <div className="max-w-screen-2xl w-full h-screen flex mx-auto justify-between pr-4">
       <Head>

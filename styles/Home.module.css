@@ -3,13 +3,13 @@
   height: 100vh;
 }
 
-.sideMenuLargeScreen aside div li img {
-  filter: invert(33%) sepia(9%) saturate(1380%) hue-rotate(176deg) brightness(88%) contrast(85%);
+.sideMenuLargeScreen div div div main img {
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.sideMenuLargeScreen li {
-  display: flex;
-  align-items: center;
+.sideMenuLargeScreen div div li img {
+  filter: invert(33%) sepia(9%) saturate(1380%) hue-rotate(176deg) brightness(88%) contrast(85%);
 }
 
 /* Navbar with small screen */
@@ -18,11 +18,8 @@
   background-color: #fff;
 }
 
-.sideMenuSmallScreen ion-icon {
-  font-size: x-large;
-  color: black;
-  cursor: pointer;
-  --ionicon-stroke-width: 20px;
+.sideMenuSmallScreen ul li section {
+  filter: invert(33%) sepia(9%) saturate(1380%) hue-rotate(176deg) brightness(88%) contrast(85%);
 }
 
 /* Main Content Division on Home Page */
