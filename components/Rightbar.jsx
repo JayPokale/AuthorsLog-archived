@@ -1,6 +1,6 @@
 const Rightbar = () => {
   return (
-    <aside className="w-48 sm:w-80 px-4 py-2 fixed flex flex-col z-20 lg:-translate-x-80">
+    <aside className="w-48 sm:w-80 px-4 py-2 fixed flex flex-col z-20 lg:-translate-x-80 lg:right-auto right-0">
       <div className="flex flex-col right-0 sm:right-auto absolute">
         <div className="relative flex w-full rounded">
           <input

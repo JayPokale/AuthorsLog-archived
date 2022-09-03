@@ -17,6 +17,7 @@ const userDetails = () => {
   const [uploadProfile, setUploadProfile] = useState("");
   const router = useRouter();
 
+  // Client side show image
   const uploadDP = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -28,6 +29,7 @@ const userDetails = () => {
     reader.readAsDataURL(event.target.files[0]);
   };
 
+  // On click event to start upload
   const dpUpload = async () => {
     var file = uploadProfile;
     var formData = new FormData();
@@ -42,6 +44,7 @@ const userDetails = () => {
     });
   };
 
+  // Upload image to cloudinary
   async function uploadFiles(uploadFileObj) {
     var apiUrl = `https://api.cloudinary.com/v1_1/AuthorsLog/image/upload`;
 
@@ -56,6 +59,7 @@ const userDetails = () => {
     }
   }
 
+  // Upload user data to firebase
   const uploadFunction = async (PhotoURL) => {
     updateProfile(auth.currentUser, {
       displayName: name,
@@ -92,7 +96,7 @@ const userDetails = () => {
                   width={208}
                   height={208}
                   layout="responsive"
-                  onClick={displayPhotoClick}
+                  onClick={() => document.getElementById("displayPhoto").click()}
                 />
                 <input
                   className="hidden"

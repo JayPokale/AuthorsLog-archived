@@ -4,7 +4,7 @@ import Article from "../../components/Article";
 
 const Post = () => {
   return (
-    <div className="max-w-screen-2xl w-screen h-screen flex mx-auto justify-between">
+    <div className="max-w-screen-2xl w-full h-screen flex mx-auto justify-between pr-4">
       <div>
         <Navbar />
       </div>

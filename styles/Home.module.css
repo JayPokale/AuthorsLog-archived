@@ -1,20 +1,10 @@
 /* Navbar with large screen */
 .sideMenuLargeScreen {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   height: 100vh;
-  width: 68px;
-  padding: 10px 10px 30px 10px;
 }
 
-.sideMenuLargeScreen ion-icon {
-  font-size: x-large;
-  margin: 20px 0;
-  cursor: pointer;
-  z-index: 20;
-  --ionicon-stroke-width: 16px;
+.sideMenuLargeScreen aside div li img {
+  filter: invert(33%) sepia(9%) saturate(1380%) hue-rotate(176deg) brightness(88%) contrast(85%);
 }
 
 .sideMenuLargeScreen li {
@@ -30,8 +20,9 @@
 
 .sideMenuSmallScreen ion-icon {
   font-size: x-large;
+  color: black;
   cursor: pointer;
-  --ionicon-stroke-width: 16px;
+  --ionicon-stroke-width: 20px;
 }
 
 /* Main Content Division on Home Page */

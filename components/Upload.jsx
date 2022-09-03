@@ -1,5 +1,5 @@
 // Uploading image to server remaining
-// Uploading content to firebase ramaining
+// Uploading content to backend ramaining
 
 import Styles from "../styles/Home.module.css";
 import { useState } from "react";
@@ -7,11 +7,6 @@ import FormData from "form-data";
 import dynamic from "next/dist/shared/lib/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.bubble.css";
-
-const displayPhotoClick = () => {
-  let displayPhoto = document.getElementById("displayPhoto");
-  displayPhoto.click();
-};
 
 const modules = {
   toolbar: {
@@ -89,6 +84,7 @@ export default function UploadContent() {
   const [featuredImage, setFeaturedImage] = useState("/blankFeatured.jpg");
   const [uploadProfile, setUploadProfile] = useState("");
 
+  // Upload featured image to client side
   const uploadImage = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -104,7 +100,7 @@ export default function UploadContent() {
     <div className={Styles.writeContent}>
       <div className="h-12 w-full bg-white fixed md:hidden z-10"></div>
 
-      <article className="pt-12 px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900 w-full">
+      <article className="pt-12 px-10 md:pl-14 md:pr-24 lg:px-24 text-gray-900 w-full">
         <div className="w-full">
           <div className="w-full mb-8">
             <div className="text-xl font-bold text-gray-600 pl-6 pb-1">
@@ -147,7 +143,7 @@ export default function UploadContent() {
                 (16:9 ratio preferred)
               </span>
             </div>
-            <div className="relative h-36 w-64 mx-auto overflow-hidden">
+            <div className="flex relative h-36 w-64 mx-auto overflow-hidden items-center">
                 <img
                   id="DP"
                   className="cursor-pointer"
@@ -155,7 +151,7 @@ export default function UploadContent() {
                   width={256}
                   height={144}
                   layout="responsive"
-                  onClick={displayPhotoClick}
+                  onClick={() => document.getElementById("displayPhoto").click()}
                   style={{margin: '0 auto'}}
                 />
                 <input

@@ -4,18 +4,11 @@ import { app } from "../config/firebase";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  FacebookAuthProvider,
-  GoogleAuthProvider,
-  TwitterAuthProvider,
-  signInWithPopup,
 } from "firebase/auth";
 import { useRouter } from "next/router";
 
 const signin = () => {
   const auth = getAuth();
-  const facebookProvider = new FacebookAuthProvider();
-  const googleProvider = new GoogleAuthProvider();
-  const twitterProvider = new TwitterAuthProvider();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,36 +28,6 @@ const signin = () => {
           alert(e);
         });
     }
-  };
-  const signUpWithFacebook = () => {
-    signInWithPopup(auth, facebookProvider)
-      .then((r) => {
-        sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
-      })
-      .catch((e) => {
-        e;
-      });
-  };
-  const signUpWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((r) => {
-        sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
-      })
-      .catch((e) => {
-        e;
-      });
-  };
-  const signUpWithTwitter = () => {
-    signInWithPopup(auth, twitterProvider)
-      .then((r) => {
-        sessionStorage.setItem("Token", r.user.accessToken);
-        router.push("/");
-      })
-      .catch((e) => {
-        e;
-      });
   };
 
   return (
@@ -113,40 +76,15 @@ const signin = () => {
               <Link href="#">Forgot Password?</Link>
             </div>
             <div
-              className="w-full flex justify-center px-6 py-3 rounded-sm bg-green-600 text-gray-50 font-semibold tracking-widest drop-shadow-md cursor-pointer"
+              className="w-32 flex justify-center py-3 rounded-sm bg-green-600 text-gray-50 font-semibold tracking-widest drop-shadow-md cursor-pointer"
               style={{ boxShadow: "0 4px 10px 0 rgba(27, 148, 71, 0.3)" }}
               type="submit"
               onClick={logUser}
             >
-              Submit
+              Sign In
             </div>
+            <div className="w-full flex justify-center h-6 items-center text-lg text-violet-600 drop-shadow-xl"></div>
           </form>
-          <div className="w-full flex justify-center my-8">
-            <div className="relative w-full h-px bg-gray-300 mx-10"></div>
-            <div className="absolute -translate-y-1/2 bg-white px-4 text-gray-400">
-              or connect with
-            </div>
-          </div>
-          <div className="w-full grid grid-cols-3 divide-x-2 my-6">
-            <div onClick={signUpWithFacebook}>
-              <img
-                className="h-12 mx-auto cursor-pointer"
-                src="https://hrcdn.net/community-frontend/assets/facebook-colored-af4249157d.svg"
-              />
-            </div>
-            <div onClick={signUpWithGoogle}>
-              <img
-                className="h-12 mx-auto cursor-pointer"
-                src="https://hrcdn.net/community-frontend/assets/google-colored-20b8216731.svg"
-              />
-            </div>
-            <div onClick={signUpWithTwitter}>
-              <img
-                className="h-12 mx-auto cursor-pointer"
-                src="https://hrcdn.net/community-frontend/assets/linkedin-colored-1db195795c.svg"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </main>

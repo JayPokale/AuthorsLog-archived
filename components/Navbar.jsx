@@ -1,43 +1,52 @@
 import Script from "next/script";
 import Styles from "../styles/Home.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/dist/client/image";
 
 const Navbar = () => {
+  const router = useRouter().asPath.replace("#", "");
+
   return (
     <nav className="flex bg-white z-30 md:z-0 fixed">
-      <Link href={"/"}>
-        <div className="pl-4 pt-2 md:hidden fixed z-20">Logo</div>
-      </Link>
       <div className="hidden md:flex my-auto">
         <div className={Styles.sideMenuLargeScreen}>
-          <Link href={"/"}>
-            <div className="cursor-pointer">Logo</div>
-          </Link>
-          <ul>
-            <li>
-              <Link href={"/"}>
-                <ion-icon name="home-outline"></ion-icon>
-              </Link>
-            </li>
-            <li>
-              <Link href={"#"}>
-                <ion-icon name="bookmarks-outline"></ion-icon>
-              </Link>
-            </li>
-            <li>
-              <Link href={"/upload"}>
-                <ion-icon name="add-outline"></ion-icon>
-              </Link>
-            </li>
-            <li>
-              <Link href={"#"}>
-                <ion-icon name="chatbubbles-outline"></ion-icon>
-              </Link>
-            </li>
-          </ul>
-          <Link href={"#"}>
-            <div className="cursor-pointer">DP</div>
-          </Link>
+          <aside className="flex flex-col justify-between h-full w-16 hover:w-48 bg-white ease-in-out duration-500 overflow-hidden">
+            <div>
+              <div className="h-56 flex items-start p-2">
+                <div className="rounded-full overflow-hidden">
+                  <Image src={'/userNone.webp'} width={176} height={176}></Image>
+                </div>
+              </div>
+              <ul>
+                <li className="flex items-center w-48 py-3 hover:bg-slate-50 ease-in-out duration-100 relative">
+                  <div className="flex justify-center w-16">
+                    <Image src={"/fa-list.svg"} width={20} height={20}></Image>
+                  </div>
+                  <div className="ml-2 text-gray-500">All Posts</div>
+                  <div className="h-10 w-[6px] absolute bg-green-400 rounded-r-full"></div>
+                </li>
+                <li className="flex items-center w-48 py-3 hover:bg-slate-50 ease-in-out duration-100">
+                  <div className="flex justify-center w-16">
+                    <Image src={"/fa-bookmark.svg"} width={20} height={20}></Image>
+                  </div>
+                  <div className="ml-2 text-gray-500">Bookmark</div>
+                </li>
+                <li className="flex items-center w-48 py-3 hover:bg-slate-50 ease-in-out duration-100">
+                  <div className="flex justify-center w-16">
+                    <Image src={"/fa-write.svg"} width={20} height={20}></Image>
+                  </div>
+                  <div className="ml-2 text-gray-500">Add Post</div>
+                </li>
+              </ul>
+            </div>
+            <div className="flex items-center w-48 py-2 mb-2 hover:bg-slate-50 ease-in-out duration-100">
+              <li className="flex justify-center w-16">
+                <Image src={"/fa-logout.svg"} width={20} height={20}></Image>
+              </li>
+              <div className="ml-2 text-gray-500">Log Out</div>
+            </div>
+          </aside>
         </div>
       </div>
 
@@ -46,22 +55,31 @@ const Navbar = () => {
           <ul className="flex justify-evenly w-full py-2">
             <li>
               <Link href={"/"}>
-                <ion-icon name="home-outline"></ion-icon>
+                <ion-icon
+                  name={
+                    router === `/` || router === "/article"
+                      ? "home"
+                      : "home-outline"
+                  }
+                ></ion-icon>
               </Link>
             </li>
             <li>
               <Link href={"#"}>
-                <ion-icon name="bookmarks-outline"></ion-icon>
+                <ion-icon
+                  name={
+                    router === `/collection` ? "bookmarks" : "bookmarks-outline"
+                  }
+                ></ion-icon>
               </Link>
             </li>
             <li>
               <Link href={"/upload"}>
-                <ion-icon name="add-outline"></ion-icon>
-              </Link>
-            </li>
-            <li>
-              <Link href={"#"}>
-                <ion-icon name="chatbubbles-outline"></ion-icon>
+                <ion-icon
+                  name={
+                    router === `/upload` ? "add-circle" : "add-circle-outline"
+                  }
+                ></ion-icon>
               </Link>
             </li>
             <li>DP</li>
