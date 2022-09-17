@@ -1,12 +1,24 @@
 import Styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 const Article = () => {
+  const router = useRouter().query.ArticleID;
+  console.log(router);
+  
   return (
     <div className={Styles.mainContent}>
       <div className="h-12 w-full bg-white fixed md:hidden z-10"></div>
+      <div className="pt-12 md:pt-0 px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900">
+        <div className="">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            reiciendis voluptas fugit saepe. Iusto, dolorem?
+          </h1>
+        </div>
+      </div>
 
       <main className="sm:px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36">
-        <div className="pt-24 md:pt-12 pb-8 flex flex-wrap justify-between border-b-2">
+        <div className="py-4 flex flex-wrap justify-between border-y-2">
           <div className="flex cursor-pointer">
             <div className="w-14 h-14 bg-black rounded-full"></div>
             <div className="flex flex-col ml-4 justify-center">
@@ -30,11 +42,7 @@ const Article = () => {
       </main>
 
       <article className="px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900">
-        <div className="py-8 border-b-2">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            reiciendis voluptas fugit saepe. Iusto, dolorem?
-          </h1>
+        <div className="py-8">
           <h2>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             reiciendis voluptas fugit saepe. Iusto, dolorem?

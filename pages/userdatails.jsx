@@ -6,11 +6,6 @@ import { useRouter } from "next/router";
 
 const auth = getAuth();
 
-const displayPhotoClick = () => {
-  let displayPhoto = document.getElementById("displayPhoto");
-  displayPhoto.click();
-};
-
 const userDetails = () => {
   const [name, setName] = useState("");
   const [dp, setDp] = useState("/userNone.webp");
@@ -52,8 +47,8 @@ const userDetails = () => {
       const data = await fetch(apiUrl, {
         method: "POST",
         body: uploadFileObj,
-      }).then((r) => r.json());
-      return data.secure_url;
+      }).then((r) => r.json()).catch(err => console.log({err}));
+      return data?.secure_url;
     } else {
       alert("An error occured");
     }

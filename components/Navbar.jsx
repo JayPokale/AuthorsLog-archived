@@ -10,10 +10,10 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="flex z-30 md:z-0 fixed">
+    <nav className="flex z-30 md:z-0 md:hover:z-10 fixed ">
       <div className="hidden md:flex my-auto">
         <div className={Styles.sideMenuLargeScreen}>
-          <div className="flex flex-col justify-between h-full w-16 hover:w-48 bg-white hover:bg-slate-50 ease-in-out duration-500 overflow-hidden rounded-md">
+          <div className="flex flex-col justify-between h-full w-16 hover:w-48 bg-white hover:bg-slate-50 ease-in-out duration-500 overflow-hidden rounded-md hover:shadow-2xl shadow-black">
             <div>
               <div className="h-48 flex items-start p-2">
                 <main>

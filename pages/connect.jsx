@@ -1,49 +1,85 @@
 import Link from "next/link";
 import Image from "next/image";
 import { app } from "../config/firebase";
+import { setCookie } from "cookies-next";
+import cookieCutter from "cookie-cutter";
 import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
-  getAdditionalUserInfo,
 } from "firebase/auth";
-import { useRouter } from "next/router";
-
+import Router, { useRouter } from "next/router";
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 const connectus = () => {
+  const [error, setError] = useState(null);
+
+  // creating new user in backend-databse
+  const createUser = async (userdata) => {
+    const req = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/login`, {
+      method: "POST",
+      body: JSON.stringify(userdata),
+
+      // credentials: "include",
+      headers: {
+        Accept: "*",
+        "Content-type": "application/json",
+      },
+    });
+    const res = await req.json();
+    if (res.ok) {
+      localStorage.setItem("user", JSON.stringify(res.user));
+      console.log(res.cookie);
+      setCookie("user", res.user_token);
+      Router.push("/");
+      return;
+    }
+    alert("something went wrong");
+  };
+
   const auth = getAuth();
-  const router = useRouter();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
   const userWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
         const user = result.user;
-        router.push("/");
+        createUser(user);
       })
       .catch((error) => {
-        alert(error.code);
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+        console.log(error);
       });
   };
 
   const userWithFacebook = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
         const user = result.user;
-        router.push("/");
+        createUser(user);
       })
       .catch((error) => {
-        alert(error.code);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+        setError(true);
       });
   };
 
   return (
-    <div className="flex w-full justify-center items-center min-h-screen bg-slate-50 select-none">
+    <div className="flex w-full justify-center items-center min-h-screen bg-slate-50 select-none relative">
+      {/*  error dialogue */}
+      {error && (
+        <section className="absolute bottom-8 flex items-center space-x-6 right-8 bg-red-500 text-white shadow-lg  px-5  rounded-md">
+          <p className="">Something went wrong !</p>
+          <FaTimes className="cursor-pointer" onClick={() => setError(false)} />
+        </section>
+      )}
       <div className="max-w-screen-lg w-full flex flex-col lg:flex-row px-12">
         <div className="lg:w-1/2 md:px-0 justify-center text-center tracking-wide">
           <Link href={"/"}>
