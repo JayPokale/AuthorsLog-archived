@@ -3,18 +3,15 @@ async function uploadFiles(uploadFileObj) {
   var apiUrl = `https://api.cloudinary.com/v1_1/AuthorsLog/image/upload`;
 
   if (uploadFileObj != "") {
-    fetch(apiUrl, {
+    const data = await fetch(apiUrl, {
       method: "POST",
       body: uploadFileObj,
     })
       .then((r) => r.json())
-      .then((data) => ({ error: false, url: data?.secure_url }))
-      .catch((err) => {
-        console.log({ err });
-        return { error: true };
-      });
+      .catch((err) => console.log({ err }));
+    return data?.secure_url;
   } else {
-    return { error: true };
+    alert("An error occured");
   }
 }
 
@@ -27,4 +24,4 @@ async function uploadFile(file, folder) {
   // Upload image to cloudinary
 }
 
-export { uploadFile };
+export {uploadFile}

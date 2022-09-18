@@ -13,7 +13,7 @@ postRouter.post("/create", checkCookie, (req, res) => {
     // console.log(user.token + randomSTR())
     // let x = tagsArr[1] ? '${tagsArr[1]}' : null
     connection.query(
-      `insert into posts ( pid, uid, title,slug, content, tag1, tag2, tag3, tag4, tag5, thumbnail ) VALUES ( ?, ?,?, ?, ?, ?, ?, ?, ?, ? )`,
+      `insert into posts ( pid, uid, title, slug, content, tag1, tag2, tag3, tag4, tag5, thumbnail ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )`,
       [
         nanoid(10),
         user.token,
@@ -26,6 +26,7 @@ postRouter.post("/create", checkCookie, (req, res) => {
       (err, result) => {
         if (err) {
           res.send({ status: false, message: "Something went wrong :(" });
+          console.log(err);
           return;
         }
         res.send({ status: true, message: "Posted successfully :)" });
@@ -39,10 +40,9 @@ postRouter.post("/create", checkCookie, (req, res) => {
 postRouter.get("/allposts", async (req, res) => {
   try {
     let result = await connection.query(
-      `select p.pid, p.title, p.thumbnail, p.time, p.likes, p.dislikes, u.photo, u.name from posts p join users u on p.uid = u.uid where p.disabled = 0 and p.deleted = 0 and u.disabled = 0`,
+      `select p.pid, p.title, p.thumbnail, p.time, p.likes, p.slug,p.dislikes, u.photo, u.name from posts p join users u on p.uid = u.uid where p.disabled = 0 and p.deleted = 0 and u.disabled = 0`,
       (error, result) => {
         if (error) throw error;
-        console.log(result);
         res.send({ result });
       }
     );
@@ -55,13 +55,11 @@ postRouter.get("/:pid/:slug", async (req, res) => {
   const { pid, slug } = req.params;
   try {
     connection.query(
-      `select p.title, p.thumbnail, p.time, p.likes, p.dislikes, u.photo, u.name from posts p join users u on p.uid = u.uid where p.disabled = 0 and p.deleted = 0 and u.disabled = 0 and p.pid = ? and p.slug= ?`[
-        (pid, slug)
-      ],
+      `select p.title, p.thumbnail, p.content, p.time, p.likes, p.dislikes, u.photo, u.name, u.followers from posts p join users u on p.uid = u.uid where p.disabled = 0 and p.deleted = 0 and u.disabled = 0 and p.pid = ? and p.slug= ?`,
+      [pid, slug],
       (error, result) => {
         if (error) throw error;
-        console.log(result);
-        res.send({ result });
+        res.send({ post: result[0] });
       }
     );
   } catch (err) {

@@ -71,7 +71,6 @@ export default function UploadContent() {
     input.setAttribute("type", "file");
     input.setAttribute("accept", "image/*");
     input.click();
-
     input.onchange = async () => {
       // var temp = content;
       // const reader = new FileReader();
@@ -117,7 +116,7 @@ export default function UploadContent() {
   // function for saving post
   const buttonRef = useRef();
   const savePost = async () => {
-    if (!buttonRef.current.disabled) {
+    if(!buttonRef.current.disabled){
       if (!title) {
         setPostError({ ...postError, title: true });
         return;
@@ -134,17 +133,12 @@ export default function UploadContent() {
       buttonRef.current.disabled = true;
       setRequestatus("Uploading image...");
       const url = await uploadFile(featuredImage, "AuthorsLog");
-      console.log({url})
-      if (!url.error) {
-        setRequestatus("Failed to upload image, :(");
-        return;
-      }
       setRequestatus("Please wait, proccessing...");
       let newTags = tagsArr
-        .filter((item) => item.trim().length > 0)
-        .slice(0, 5);
+              .filter((item) => item.trim().length > 0)
+              .slice(0, 5);
       for (let i = 0; i < 5; i++) {
-        newTags[i] = newTags[i] || null;
+        newTags[i] = newTags[i] || null
       }
       const req = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/post/create`,
@@ -158,16 +152,14 @@ export default function UploadContent() {
           body: JSON.stringify({
             title: title,
             content: content,
-            featured_image: url?.url,
-            tagsArr: newTags,
+            featured_image: url,
+            tagsArr: newTags
           }),
         }
       );
       const response = await req.json();
       console.log(response);
-      if (response) {
-        setRequestatus(response?.message);
-      }
+      setRequestatus("Done !");
       buttonRef.current.disabled = false;
     }
   };

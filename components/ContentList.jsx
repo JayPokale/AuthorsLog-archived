@@ -22,7 +22,7 @@ const ContentList = () => {
         {contents?.map((obj) => {
           return (
             <section key={obj.pid} className="w-full sm:w-1/2 xl:w-1/3 p-4">
-              <Link href={"/article/temp"}>
+              <Link href={`/article/${obj?.pid}/${obj?.slug}`}>
                 <div className="flex flex-col cursor-pointer">
                   <div className="-z-10">
                     <Image

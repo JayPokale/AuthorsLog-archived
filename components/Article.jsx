@@ -1,37 +1,43 @@
 import Styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { format } from "timeago.js";
+const Article = ({ post }) => {
+  const [pid, slug] = useRouter()?.query?.post || [];
+  const [Loading, setLoading] = useState(true);
 
-const Article = () => {
-  const router = useRouter().query.ArticleID;
-  console.log(router);
-  
+  useEffect(() => {}, []);
   return (
     <div className={Styles.mainContent}>
+      {!post.name && (
+        <section className="fixed inset-0 bg-white/40 z-20 grid place-items-center text-4xl font-bold text-slate-800 backdrop-filter backdrop-blur-md">
+          Loading...
+        </section>
+      )}
       <div className="h-12 w-full bg-white fixed md:hidden z-10"></div>
       <div className="pt-12 md:pt-0 px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900">
         <div className="">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            reiciendis voluptas fugit saepe. Iusto, dolorem?
-          </h1>
+          {" "}
+          <h1>{post?.title}</h1>{" "}
         </div>
       </div>
-
       <main className="sm:px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36">
         <div className="py-4 flex flex-wrap justify-between border-y-2">
           <div className="flex cursor-pointer">
             <div className="w-14 h-14 bg-black rounded-full"></div>
             <div className="flex flex-col ml-4 justify-center">
               <div className="font-bold text-lg flex flex-wrap">
-                <span>Lily Laramar</span>
+                <span>{post?.name}</span>
                 <span className="font-normal text-sm text-gray-600 contents">
-                  &nbsp;(420 Followers)&nbsp;
+                  &nbsp;({post?.followers} Followers)&nbsp;
                 </span>
                 <span className="ml-2 text-base text-blue-600 contents">
                   Follow
                 </span>
               </div>
-              <div className="text-sm text-gray-600 contents">69 days ago</div>
+              <div className="text-sm text-gray-600 contents">
+                {format(new Date(post.time))}
+              </div>
             </div>
           </div>
           <div className="flex space-x-4 items-center mr-8">
@@ -42,35 +48,13 @@ const Article = () => {
       </main>
 
       <article className="px-10 md:pl-14 md:pr-24 lg:px-24 xl:px-36 text-gray-900">
-        <div className="py-8">
-          <h2>
+        <div className="py-8" dangerouslySetInnerHTML={{ __html: post?.content }}>
+          {/* <h2>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             reiciendis voluptas fugit saepe. Iusto, dolorem?
-          </h2>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            adipisci asperiores nesciunt sint numquam reprehenderit, ea
-            provident voluptatem soluta. Saepe, voluptatibus. Error id fugiat
-            corporis, fugit totam cum officiis quaerat quisquam, natus quasi
-            quam laudantium. Non aut officiis at distinctio perspiciatis,
-            provident molestiae suscipit totam odio dolor, facere, consequatur
-            labore.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
-            rerum cupiditate? Harum magni suscipit enim error dolorem aliquid a
-            minus maxime ea dicta atque temporibus qui necessitatibus assumenda,
-            doloremque adipisci voluptas. Possimus vel porro ea officiis,
-            deleniti, sed tempore iste ullam ad expedita sequi aspernatur
-            sapiente facilis labore accusamus laudantium?
-          </p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-          </ul>
-          <img src="/image1.png" />
+          </h2> */}
+
+       
         </div>
       </article>
     </div>
