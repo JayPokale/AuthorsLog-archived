@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      {router !== "/connect" && <Navbar />}
+      {/* {router !== "/connect" && <Navbar />} */}
       <Component {...pageProps} />
     </>
   );
