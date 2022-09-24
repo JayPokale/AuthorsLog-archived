@@ -2,7 +2,7 @@ import Head from "next/head";
 import ContentList from "../components/ContentList";
 import Rightbar from "../components/Rightbar";
 
-export default function Home() {
+export default function Home({posts}) {
   return (
     <div className="max-w-screen-2xl w-full h-screen flex mx-auto justify-center">
       <Head>
@@ -12,11 +12,22 @@ export default function Home() {
       </Head>
       
       <div>
-        <ContentList />
+        <ContentList posts={posts} />
       </div>
       <div>
         <Rightbar />
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  console.log("req")
+  const req = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/allposts`);
+  const allPosts = await req.json();
+  return {
+    props: {
+      posts: allPosts.result || {},
+    },
+  };
 }

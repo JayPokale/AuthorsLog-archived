@@ -35,15 +35,22 @@
   }
 }
 
-.mainContent div section{
-  transition: ease-in-out;
-  transition-duration: 150ms;
+.mainContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column; 
 }
 
-.mainContent div section:hover {
+.mainContent article section section{
+  padding: 8px;
+  transition: ease-in-out;
+  transition-duration: 200ms;
+}
+
+.mainContent article section section:hover {
   box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
   transition: ease-in-out;
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
 
 .mainContent .h1title {

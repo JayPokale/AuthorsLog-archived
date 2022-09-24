@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { format } from "timeago.js";
 const Article = ({ post }) => {
-  const [pid, slug] = useRouter()?.query?.post || [];
-  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {}, []);
   return (

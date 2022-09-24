@@ -72,25 +72,14 @@ export default function UploadContent() {
     input.setAttribute("accept", "image/*");
     input.click();
     input.onchange = async () => {
-      // var temp = content;
-      // const reader = new FileReader();
       var range = this.quill.getSelection();
       var file = input.files[0];
-      // if (file) {
-      //   reader.readAsDataURL(file);
-      //   reader.onload = () => {
-      //     this.quill.insertEmbed(range.index, "image", reader.result);
-      //   };
-      // }
       var formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "AuthorsLog");
 
       uploadFiles(formData).then((url) => {
         if (url) {
-          // setContent(temp);
-          // console.log(this.quill);
-          // setContent(temp);
           this.quill.insertEmbed(range.index, "image", url);
         } else {
           alert("An error occured");
