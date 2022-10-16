@@ -1,0 +1,9 @@
+Home Page
+Profile Page
+Edit Profile
+Menu
+Content Page
+Saved
+Log in/Sign up
+Add Post
+Edit Post

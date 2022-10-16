@@ -2,18 +2,7 @@ import Styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { format } from "timeago.js";
-import { useEffect, useState } from "react";
 const ContentList = ({ posts }) => {
-  // const [contents, setContents] = useState(null);
-  // const getPosts = async () => {
-  //   const posts = await fetch("http://localhost:6969/v1/api/post/allposts");
-  //   const postJSON = await posts.json();
-  //   setContents(postJSON?.result);
-  //   console.log(postJSON?.result);
-  // };
-  // useEffect(() => {
-  //   getPosts();
-  // }, []);
   console.log({ posts });
   return (
     <main className={Styles.mainContent}>
@@ -56,31 +45,6 @@ const ContentList = ({ posts }) => {
             </Link>
           </section>
         ))}
-
-        {/* <section className="w-full sm:w-1/2 xl:w-1/3 p-4">
-          <Link href={"/article/temp"}>
-            <div className="flex flex-col cursor-pointer">
-              <div className="-z-10">
-                <Image src="/image1.png" width={640} height={360} />
-              </div>
-              <div className="flex">
-                <div className="w-10 h-10 bg-black rounded-full absolute -z-10"></div>
-                <div className="ml-14">
-                  <div className={Styles.h1title}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ducimus maiores quos obcaecati rem! Adipisci exercitationem
-                    esse unde rerum tempora ipsam, magni, eveniet, quam
-                    repudiandae praesentium odio eius. Nisi, aliquid cumque!30
-                  </div>
-                  <div className="text-sm text-gray-800">Dare2Solve</div>
-                  <div className="text-sm text-gray-600">
-                    10k votes (70%) &#9679; 08 Mar 2001
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </section> */}
       </article>
     </main>
   );
